@@ -51,6 +51,32 @@ def only_get():
 def index():
     return render_template('index.html')
 
+
+###################################################################################################
+# POSTS
+###################################################################################################
+
+# da comments irgendwie nicht wollen im html, sind sie halt hier: 
+# <!-- {%%} ist um Sachen zu machen -->
+# <!-- {{ }} ist um ein print zu machen -->
+all_posts = [
+    {
+        'title': 'Post 1',
+        'content': 'This is post number 1, wassup'
+    },
+    {
+        'title': 'Post 2',
+        'content': 'This is post number 2 :((('
+    }
+] 
+
+
+# Templates HAVE TO be stored in the folder templates.
+@app.route('/posts')
+def return_posts():
+    return render_template('posts.html', posts=all_posts)
+
+
 # Thanks to jinja-syntax, we were able to store a base.hmtl with the boilerplate code. This is nice, since it allows us to 
 # skip rewriting all of this. 
 # It is also nice because it allows us to write very flexible html-documents. 
